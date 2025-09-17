@@ -36,6 +36,58 @@ img{max-width:100%;display:block}
 .btn-outline{background:transparent;color:var(--text);border-color:#3f3f3f}
 .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;color:var(--muted);font-size:.9rem}
 .chip{display:inline-block;padding:.15rem .4rem;border-radius:8px;background:#171717;border:1px solid #3f3f3f;font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--text-2);font-size:.75rem}
+/* ==== Framed hero image (circle/oval) ==== */
+
+/* Base: framed container draws the ring; image inherits the shape */
+.hero-figure.framed{
+  --ring1: #fbbf24;      /* brand yellow */
+  --ring2: #fde68a;      /* lighter yellow for a soft gradient */
+  --pad: 8px;            /* ring thickness */
+  display: inline-block;
+  padding: var(--pad);
+  background: radial-gradient(circle at 30% 30%, var(--ring2), var(--ring1) 65%);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  overflow: hidden;      /* clip the image to the frame shape */
+  border: 1px solid #3f3f3f; /* subtle outer edge */
+}
+
+/* Image fills the framed container and inherits the curve */
+.hero-figure.framed .hero-photo{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  background: #111;      /* prevents flash on slow loads */
+}
+
+/* Choose ONE shape by class on the container */
+
+/* Circle: perfect round avatar */
+.hero-figure.framed.circle{
+  width: min(45vw, 420px);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;   /* circle */
+}
+
+/* Oval: elegant portrait oval (tweak ratio or radii to taste) */
+.hero-figure.framed.oval{
+  width: min(45vw, 420px);
+  aspect-ratio: 4 / 5;           /* portrait shape */
+  border-radius: 50% / 42%;      /* oval curve */
+}
+
+/* Responsive visibility — show on tablet+; still allow on mobile if desired */
+.hero-figure{ display:none; }
+@media (min-width:768px){
+  .hero-figure{ display:block; align-self:center; }
+}
+
+/* Optional: show on mobile too (uncomment if you want it visible on phones)
+@media (max-width:767.98px){
+  .hero-figure{ display:block; margin-top:1.25rem; }
+}
+*/
 
 /* Right-side hero image */
 .hero-figure{display:none}
