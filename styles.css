@@ -39,21 +39,22 @@ img{max-width:100%;display:block}
 
 /* Right-side hero image */
 .hero-figure{display:none}
-/* === Hero circle frame overrides (added) === */
 .hero-photo{
-  aspect-ratio:1/1 !important;     /* perfect circle */
-  border-radius:999px !important;   /* circle shape */
-  object-fit:cover !important;
-  max-width:420px !important;       /* nice size on desktop */
-  border:6px solid var(--brand) !important;     /* brand ring */
-  outline:2px solid rgba(255,255,255,.12);      /* subtle outer ring */
-  outline-offset:2px;
+  width:100%;
+  max-width:520px;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:20px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  background:#111;
+  margin-inline:auto;
 }
-@media (max-width:767.98px){
-  /* Show the hero image on mobile too */
-  .hero-figure{ display:block !important; margin-top:1.25rem; }
-  .hero-photo{ max-width:280px !important; }
+@media (min-width:768px){
+  .hero-grid{grid-template-columns:1.1fr .9fr;align-items:center}
+  .hero-figure{display:block;align-self:center}
 }
+
 /* Trust */
 .trust{border-bottom:1px solid var(--line)}
 .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;padding:1rem 0}
@@ -128,4 +129,20 @@ img{max-width:100%;display:block}
   .btn, .card, .pill, .input{transition:transform .2s ease, border-color .2s ease, background-color .2s ease}
   .btn:hover{transform:translateY(-1px)}
   .card:hover{transform:translateY(-2px)}
+}
+
+/* === Hero circle frame overrides (added) === */
+.hero-photo{
+  aspect-ratio:1/1 !important;     /* perfect circle */
+  border-radius:999px !important;   /* circle shape */
+  object-fit:cover !important;
+  max-width:420px !important;       /* nice size on desktop */
+  border:6px solid var(--brand) !important;     /* brand ring */
+  outline:2px solid rgba(255,255,255,.12);      /* subtle outer ring */
+  outline-offset:2px;
+}
+@media (max-width:767.98px){
+  /* Optionally show the hero image on mobile too */
+  .hero-figure{ display:block !important; margin-top:1.25rem; }
+  .hero-photo{ max-width:280px !important; }
 }
