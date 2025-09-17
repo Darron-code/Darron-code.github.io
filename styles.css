@@ -37,6 +37,24 @@ img{max-width:100%;display:block}
 .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;color:var(--muted);font-size:.9rem}
 .chip{display:inline-block;padding:.15rem .4rem;border-radius:8px;background:#171717;border:1px solid #3f3f3f;font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--text-2);font-size:.75rem}
 
+/* Right-side hero image */
+.hero-figure{display:none}
+.hero-photo{
+  width:100%;
+  max-width:520px;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:20px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  background:#111;
+  margin-inline:auto;
+}
+@media (min-width:768px){
+  .hero-grid{grid-template-columns:1.1fr .9fr;align-items:center}
+  .hero-figure{display:block;align-self:center}
+}
+
 /* Trust */
 .trust{border-bottom:1px solid var(--line)}
 .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;padding:1rem 0}
@@ -95,14 +113,13 @@ img{max-width:100%;display:block}
 .footer{border-top:1px solid var(--line);margin-top:3rem}
 .footer-grid{display:grid;gap:1rem;padding:2rem 0;color:var(--muted);font-size:.95rem}
 
-/* Responsive */
+/* Responsive extras */
 @media (min-width:640px){
   .menu{display:flex}
   .trust-grid{grid-template-columns:repeat(4,1fr)}
   .grid-2-sm{grid-template-columns:repeat(2,1fr)}
 }
 @media (min-width:768px){
-  .hero-grid{grid-template-columns:1.1fr .9fr;align-items:center}
   .grid-3-md{grid-template-columns:repeat(3,1fr)}
   .steps{grid-template-columns:repeat(4,1fr)}
   .about{grid-template-columns:2fr 1fr}

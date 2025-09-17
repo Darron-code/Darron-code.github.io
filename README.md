@@ -8,7 +8,6 @@ Full one-page site in plain **HTML + CSS**. Ready for GitHub Pages.
 3. **Settings → Pages** → Source: *Deploy from a branch*; Branch: `main` / **root**.
 
 ## Customize
-- Email is set to `darron@sargeandcents.com` in `index.html`.
-- Replace `assets/logo.jpg` with your preferred logo file (keep the same name/path).
-
-License: MIT
+- Replace `assets/logo.jpg` and/or `assets/hero.jpg` with your preferred images (keep names/paths).
+- Email is set to `darron@sargeandcents.com` in `index.html` (search `mailto:` to edit later).
+- Social image: `assets/og-image.png`; Favicon: `assets/favicon.png`.
