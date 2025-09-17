@@ -16,7 +16,7 @@ img{max-width:100%;display:block}
 .header{position:sticky;top:0;z-index:40;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
 .brand{display:flex;align-items:center;gap:.75rem}
-.brand-logo{height:48px;width:auto;display:block}
+.brand-logo{height:72px;width:auto;display:block}
 .brand-title{font-weight:700;letter-spacing:.2px}
 .brand-sub{font-size:.72rem;color:var(--muted)}
 .menu{display:none;gap:1.25rem;font-size:.95rem}
