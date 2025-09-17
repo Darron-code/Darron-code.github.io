@@ -1,0 +1,371 @@
+export default function SargAndCentsSite() {
+  return (
+    <div className="min-h-screen bg-neutral-950 text-neutral-100">
+      <SiteHeader />
+      <Hero />
+      <TrustBar />
+      <Section id="services" title="Services">
+        <Services />
+      </Section>
+      <Section id="pricing" title="Value Pricing — Simple, Transparent">
+        <Pricing />
+      </Section>
+      <Section id="process" title="How We Work">
+        <Process />
+      </Section>
+      <Section id="about" title="About Sarg & Cents">
+        <About />
+      </Section>
+      <Section id="faqs" title="Frequently Asked Questions">
+        <FAQs />
+      </Section>
+      <Section id="contact" title="Get In Touch">
+        <Contact />
+      </Section>
+      <Footer />
+    </div>
+  );
+}
+
+function SiteHeader() {
+  return (
+    <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/70 border-b border-neutral-800">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        <a href="#" className="flex items-center gap-3 group">
+          <Logo />
+          <div>
+            <div className="text-lg font-semibold tracking-tight group-hover:text-amber-300 transition">Sarg & Cents</div>
+            <div className="text-xs text-neutral-400">Bookkeeping • Advisory • QuickBooks®</div>
+          </div>
+        </a>
+        <nav className="hidden md:flex items-center gap-6 text-sm">
+          <a href="#services" className="hover:text-amber-300">Services</a>
+          <a href="#pricing" className="hover:text-amber-300">Pricing</a>
+          <a href="#process" className="hover:text-amber-300">Process</a>
+          <a href="#about" className="hover:text-amber-300">About</a>
+          <a href="#contact" className="hover:text-amber-300">Contact</a>
+          <a href="#contact" className="inline-flex items-center rounded-full border border-amber-400/40 bg-amber-400/10 px-4 py-2 text-amber-300 hover:bg-amber-400/20 transition">Free Consult</a>
+        </nav>
+      </div>
+    </header>
+  );
+}
+
+function Logo() {
+  return (
+    <div className="relative">
+      {/* Crest circle */}
+      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-neutral-800 to-neutral-700 ring-2 ring-neutral-600 shadow-inner grid place-items-center">
+        {/* Balanced scale icon */}
+        <svg viewBox="0 0 24 24" aria-hidden className="h-5 w-5">
+          <path fill="currentColor" d="M11 3h2v2h3v2h-3v10.126A4.002 4.002 0 0 1 16 21H8a4 4 0 0 1 4-3.874V7H9V5h2V3Zm7.5 5 3.5 6h-7l3.5-6Zm-13 0 3.5 6h-7L5.5 8Z"/>
+        </svg>
+      </div>
+      {/* Subtle badge hint for the Honey Badger spirit */}
+      <div className="absolute -bottom-1 -right-1 text-[10px] px-1.5 py-0.5 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30">HB</div>
+    </div>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative overflow-hidden border-b border-neutral-800">
+      <div className="absolute inset-0 -z-10 opacity-40 bg-[radial-gradient(ellipse_at_top_left,rgba(251,191,36,0.15),transparent_45%),radial-gradient(ellipse_at_bottom_right,rgba(245,245,244,0.08),transparent_35%)]" />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+        <div className="max-w-3xl">
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+            Bookkeeping that frees your time—and grows your profits.
+          </h1>
+          <p className="mt-6 text-neutral-300 text-lg">
+            Veteran‑led, value‑priced bookkeeping for small businesses. We set up, clean up, and keep up your books—so you can focus on customers, not spreadsheets.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#contact" className="inline-flex items-center justify-center rounded-xl bg-amber-400 px-5 py-3 font-semibold text-neutral-900 hover:bg-amber-300 transition">Book a Free 20‑min Consult</a>
+            <a href="#pricing" className="inline-flex items-center justify-center rounded-xl border border-neutral-700 px-5 py-3 font-semibold hover:border-neutral-500 transition">See Value Pricing</a>
+          </div>
+          <ul className="mt-6 flex flex-wrap gap-4 text-sm text-neutral-400">
+            <li className="inline-flex items-center gap-2"><Badge>QB</Badge> QuickBooks® Pro‑Advisor Focus</li>
+            <li className="inline-flex items-center gap-2"><Badge>VA</Badge> Veteran‑Owned</li>
+            <li className="inline-flex items-center gap-2"><Badge>US</Badge> Based in West Virginia, USA</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Badge({ children }) {
+  return (
+    <span className="px-1.5 py-0.5 rounded-md border border-neutral-700 text-neutral-300 bg-neutral-800/60 text-xs font-mono">{children}</span>
+  );
+}
+
+function TrustBar() {
+  return (
+    <div className="border-b border-neutral-800">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs text-neutral-400">
+        <TrustItem title="Time Saved" detail="8–12 hrs/month typical" />
+        <TrustItem title="Monthly Close" detail="On‑time, every month" />
+        <TrustItem title="Accuracy" detail="> 99.5% reconciliation" />
+        <TrustItem title="Security" detail="Bank‑grade data handling" />
+      </div>
+    </div>
+  );
+}
+
+function TrustItem({ title, detail }) {
+  return (
+    <div className="rounded-xl border border-neutral-800 bg-neutral-900/40 px-4 py-3">
+      <div className="text-neutral-200 font-semibold">{title}</div>
+      <div className="text-neutral-400 mt-1">{detail}</div>
+    </div>
+  );
+}
+
+function Section({ id, title, children }) {
+  return (
+    <section id={id} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="flex items-end justify-between gap-4 mb-8">
+        <h2 className="text-2xl md:text-3xl font-bold">{title}</h2>
+        {id !== 'contact' && (
+          <a href="#contact" className="text-sm text-amber-300 hover:underline">Free consult →</a>
+        )}
+      </div>
+      {children}
+    </section>
+  );
+}
+
+function Services() {
+  const items = [
+    {
+      title: "Monthly Bookkeeping",
+      desc: "Categorization, reconciliations, month‑end close, and management reports you can actually read.",
+      points: ["Bank/credit card reconciliations", "AP/AR tracking", "Cash‑flow snapshot", "Monthly financials"]
+    },
+    {
+      title: "Catch‑Up & Clean‑Up",
+      desc: "Behind on books? We repair historical data, fix chart‑of‑accounts, and prepare clean statements.",
+      points: ["Backlog clean‑up", "COA redesign", "Receipt/Doc mapping", "Tax‑ready reports"]
+    },
+    {
+      title: "Payroll & Sales Tax",
+      desc: "Set‑up and ongoing filings with reminders and audit‑ready records.",
+      points: ["Payroll setup/liaison", "Quarterly filings", "Sales/use tax prep", "1099 prep"]
+    },
+    {
+      title: "Advisory & KPI Dashboards",
+      desc: "Monthly insights: margins, burn, breakeven, and budget vs. actuals—with clear actions.",
+      points: ["KPI selection", "Budgeting & forecasting", "Job/class tracking", "Quarterly planning"]
+    }
+  ];
+
+  return (
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {items.map((item) => (
+        <div key={item.title} className="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 hover:border-neutral-700 transition">
+          <div className="text-lg font-semibold">{item.title}</div>
+          <p className="text-neutral-400 mt-2 text-sm">{item.desc}</p>
+          <ul className="mt-4 space-y-1 text-sm text-neutral-300 list-disc list-inside">
+            {item.points.map(p => <li key={p}>{p}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Pricing() {
+  const tiers = [
+    {
+      name: "Starter",
+      price: "$395/mo",
+      blurb: "Solo & side‑hustles ready to graduate from spreadsheets.",
+      features: [
+        "Up to 2 accounts", "Monthly reconciliations", "P&L + Balance Sheet", "Email support"
+      ]
+    },
+    {
+      name: "Growth",
+      price: "$695/mo",
+      blurb: "Growing small businesses that want proactive insights.",
+      featured: true,
+      features: [
+        "Up to 5 accounts", "Weekly categorization", "AP/AR tracking", "Cash‑flow + KPI mini‑dashboard", "Quarterly review call"
+      ]
+    },
+    {
+      name: "Prime",
+      price: "Custom",
+      blurb: "Multi‑entity, class tracking, inventory, or high‑volume—tailored for you.",
+      features: [
+        "Unlimited accounts", "Class/location tracking", "Job costing", "Controller‑level advisory", "Custom reporting"
+      ]
+    }
+  ];
+
+  return (
+    <div className="grid md:grid-cols-3 gap-6 items-stretch">
+      {tiers.map((t) => (
+        <div key={t.name} className={`rounded-2xl border p-6 ${t.featured ? 'border-amber-400/40 bg-amber-400/5 shadow-[0_0_0_1px_rgba(251,191,36,.2)]' : 'border-neutral-800 bg-neutral-900/50'}`}>
+          <div className="flex items-baseline justify-between">
+            <h3 className="text-xl font-semibold">{t.name}</h3>
+            <div className="text-2xl font-extrabold">{t.price}</div>
+          </div>
+          <p className="mt-2 text-sm text-neutral-400">{t.blurb}</p>
+          <ul className="mt-4 space-y-2 text-sm">
+            {t.features.map(f => (
+              <li key={f} className="flex items-start gap-2">
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-amber-300 inline-block" />
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6">
+            <a href="#contact" className={`block text-center rounded-xl px-4 py-2 font-semibold ${t.featured ? 'bg-amber-400 text-neutral-900 hover:bg-amber-300' : 'border border-neutral-700 hover:border-neutral-500'}`}>Start with {t.name}</a>
+          </div>
+          <p className="mt-4 text-xs text-neutral-400">
+            Value‑based pricing: fees reflect complexity, volume, and the outcomes we deliver—not hours logged.
+          </p>
+        </div>
+      ))}
+      <div className="md:col-span-3 mt-2 text-sm text-neutral-400">
+        <strong className="text-neutral-200">Save money vs DIY/Hourly:</strong> Clients typically save $600–$1,800/mo in owner time (8–12 hrs at $75–$150/hr) and avoid costly errors at tax time.
+      </div>
+    </div>
+  );
+}
+
+function Process() {
+  const steps = [
+    { n: 1, t: "Discovery", d: "Free consult to understand your goals, systems, and bottlenecks." },
+    { n: 2, t: "Proposal", d: "Clear scope + fixed monthly price tailored to your needs." },
+    { n: 3, t: "Onboarding", d: "QuickBooks® connection, doc vault, and first‑month checklist." },
+    { n: 4, t: "Monthly Rhythm", d: "Categorize → reconcile → report → advise. On‑time closings, every month." },
+  ];
+  return (
+    <ol className="grid md:grid-cols-4 gap-6">
+      {steps.map(s => (
+        <li key={s.n} className="relative rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6">
+          <div className="absolute -top-3 left-6 h-6 w-6 rounded-full bg-amber-400 text-neutral-900 font-bold grid place-items-center text-sm shadow" aria-hidden>{s.n}</div>
+          <h4 className="mt-3 text-lg font-semibold">{s.t}</h4>
+          <p className="mt-2 text-sm text-neutral-400">{s.d}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function About() {
+  return (
+    <div className="grid lg:grid-cols-3 gap-8 items-start">
+      <div className="lg:col-span-2 space-y-4 text-neutral-300">
+        <p>
+          <strong className="text-neutral-100">Darron L. Soren</strong>, Retired US Army Sergeant First Class, brings 20 years of disciplined leadership to small‑business finances. Throughout his military career he was entrusted with accounts and equipment valued in the <em>hundreds of millions</em>—and he treats your books with the same rigor.
+        </p>
+        <p>
+          Sarg & Cents is a veteran‑owned bookkeeping and advisory practice specializing in QuickBooks®. We keep your records accurate, on time, and tax‑ready, while delivering clear monthly insights you can act on.
+        </p>
+        <ul className="grid sm:grid-cols-2 gap-3 text-sm">
+          <li className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-3">QuickBooks®‑focused (discounted subscription available through our partner plan)</li>
+          <li className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-3">Value‑based pricing—no hourly surprises</li>
+          <li className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-3">Clear, plain‑English reporting</li>
+          <li className="rounded-xl border border-neutral-800 bg-neutral-900/60 p-3">Data security and confidentiality first</li>
+        </ul>
+      </div>
+      <div className="rounded-2xl border border-neutral-800 bg-neutral-900/60 p-6">
+        <div className="text-sm text-neutral-400">Credentials</div>
+        <ul className="mt-2 space-y-2 text-sm">
+          <li>• Retired US Army SFC (20 years)</li>
+          <li>• QuickBooks® Online expertise</li>
+          <li>• Experienced with multi‑entity, class tracking, and inventory</li>
+          <li>• CPA referral network for tax strategy & filing</li>
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+function FAQs() {
+  const qs = [
+    { q: "Do you work with my CPA?", a: "Yes. We coordinate with your CPA for smooth tax prep and share clean, reconciled financials—saving you time and tax‑season stress." },
+    { q: "Do you charge hourly?", a: "No. We use value‑based, fixed monthly pricing tied to your needs and outcomes." },
+    { q: "Which industries do you serve?", a: "Service businesses, trades, retail, e‑commerce, and professional services. If you use QuickBooks®, we can likely help." },
+    { q: "Can you catch up messy books?", a: "Absolutely. We love turning chaos into clarity—fast." },
+  ];
+  return (
+    <div className="grid md:grid-cols-2 gap-6">
+      {qs.map(item => (
+        <div key={item.q} className="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6">
+          <div className="font-semibold">{item.q}</div>
+          <p className="mt-2 text-sm text-neutral-400">{item.a}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function Contact() {
+  return (
+    <div className="grid lg:grid-cols-2 gap-8">
+      <div className="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6">
+        <div className="text-sm text-neutral-400">Schedule</div>
+        <h3 className="text-xl font-semibold mt-1">Book a Free 20‑Minute Consultation</h3>
+        <p className="mt-2 text-sm text-neutral-400">Tell us about your business, goals, and current systems. We'll propose a tailored, fixed monthly plan.</p>
+        <a href="mailto:sargandcents@example.com?subject=Free%20Consult%20Request" className="mt-4 inline-flex items-center rounded-xl bg-amber-400 px-4 py-2 font-semibold text-neutral-900 hover:bg-amber-300">Email Us</a>
+        <div className="mt-4 text-xs text-neutral-500">Prefer a call? Add your phone number in the email and your best times (ET).</div>
+      </div>
+      <form className="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 space-y-4" onSubmit={(e)=>e.preventDefault()}>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <Field label="First name"><input className="Input" placeholder="Jane" required/></Field>
+          <Field label="Last name"><input className="Input" placeholder="Doe" required/></Field>
+        </div>
+        <Field label="Email"><input type="email" className="Input" placeholder="you@company.com" required/></Field>
+        <Field label="Company"><input className="Input" placeholder="Acme Co."/></Field>
+        <Field label="Message"><textarea className="Input min-h-32" placeholder="Tell us what you need help with…"/></Field>
+        <button className="rounded-xl bg-amber-400 px-4 py-2 font-semibold text-neutral-900 hover:bg-amber-300 w-full sm:w-auto" type="submit">Send (Demo)</button>
+        <p className="text-xs text-neutral-500">This demo form does not send data. Connect to your email/CRM for production.</p>
+      </form>
+    </div>
+  );
+}
+
+function Field({ label, children }) {
+  return (
+    <label className="block text-sm">
+      <div className="mb-1 text-neutral-300">{label}</div>
+      {children}
+    </label>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-neutral-800 mt-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 text-sm text-neutral-400">
+        <div className="flex flex-col sm:flex-row justify-between gap-4">
+          <div>
+            <div className="font-semibold text-neutral-300">Sarg & Cents, LLC</div>
+            <div>Bookkeeping • Advisory • QuickBooks®</div>
+            <div className="mt-1">Based in West Virginia • Serving clients nationwide</div>
+          </div>
+          <div className="space-y-1">
+            <a href="#services" className="block hover:text-amber-300">Services</a>
+            <a href="#pricing" className="block hover:text-amber-300">Pricing</a>
+            <a href="#about" className="block hover:text-amber-300">About</a>
+            <a href="#contact" className="block hover:text-amber-300">Contact</a>
+          </div>
+          <div className="space-y-1">
+            <div>© {new Date().getFullYear()} Sarg & Cents</div>
+            <div className="text-xs">Veteran‑Owned Small Business</div>
+          </div>
+        </div>
+      </div>
+      <style>{`
+        .Input {
+          @apply w-full rounded-xl bg-neutral-900/70 border border-neutral-700 px-3 py-2 outline-none focus:border-amber-400/60 focus:ring-0;
+        }
+      `}</style>
+    </footer>
+  );
+}
