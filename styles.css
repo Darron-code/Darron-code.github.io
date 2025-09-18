@@ -132,12 +132,12 @@ img{max-width:100%;display:block}
 .list li{margin:.25rem 0}
 
 /* Pricing */
-.price-card{display:flex;flex-direction:column;gap:1.5rem}
+.price-card{display:flex;flex-direction:column;gap:.75rem}
 .price-top{display:flex;align-items:baseline;justify-content:space-between}
-.price{font-weight:900;font-size:.75rem}
+.price{font-weight:900;font-size:1.5rem}
 .featured{border-color:rgba(251,191,36,.5);background:rgba(251,191,36,.06);box-shadow:0 0 0 1px rgba(251,191,36,.2)}
 .dot{display:inline-block;width:6px;height:6px;border-radius:999px;background:#fcd34d;margin-top:.45rem}
-.price-feats{display:grid;gap:.5rem}
+.price-feats{display:grid;gap:2.5rem}
 .subtext{color:var(--muted);font-size:.85rem;margin-top:.5rem}
 
 /* Process */
