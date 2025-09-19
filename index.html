@@ -311,29 +311,30 @@
           <a class="btn btn-primary" href="mailto:darron@sargeandcents.com?subject=Free%20Consult%20Request">Email Us</a>
           <div class="subtext" style="margin-top:.5rem">Prefer a call? Add your phone number in the email and your best times (ET).</div>
         </div>
-        <form class="card" onsubmit="event.preventDefault(); alert('Demo only — hook this form to your email/CRM.');">
+        <form class="card" id="contact-form" novalidate>
           <label class="field">
             <div class="label">First name</div>
-            <input class="input" placeholder="Jane" required>
+            <input class="input" name="first_name" placeholder="Jane" required>
           </label>
           <label class="field">
             <div class="label">Last name</div>
-            <input class="input" placeholder="Doe" required>
+            <input class="input" name="last_name" placeholder="Doe" required>
           </label>
           <label class="field">
             <div class="label">Email</div>
-            <input type="email" class="input" placeholder="you@company.com" required>
+            <input type="email" class="input" name="email" placeholder="you@company.com" required>
           </label>
           <label class="field">
             <div class="label">Company</div>
-            <input class="input" placeholder="Acme Co.">
+            <input class="input" name="company" placeholder="Acme Co.">
           </label>
           <label class="field">
             <div class="label">Message</div>
-            <textarea class="input textarea" placeholder="Tell us what you need help with…"></textarea>
+            <textarea class="input textarea" name="message" placeholder="Tell us what you need help with…" required></textarea>
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off"> 
           </label>
           <button class="btn btn-primary" type="submit">Send (Demo)</button>
-          <p class="subtext">This demo form does not send data. Connect to your email/CRM for production.</p>
+          <p class="subtext form-status" aria-live="polite" style="margin-top:.5rem"></p>
         </form>
       </div>
     </div>
@@ -361,5 +362,55 @@
   </footer>
 
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+<script>
+  (function () {
+    const API = "https://YOUR-BACKEND-DOMAIN/api/contact"; // ← point this to your server
+    const form = document.getElementById('contact-form');
+    const statusEl = form.querySelector('.form-status');
+    const btn = document.getElementById('sendBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // honeypot (spam trap)
+      if (form._gotcha && form._gotcha.value.trim()) {
+        statusEl.textContent = "Request sent.";
+        return;
+      }
+
+      const fd = new FormData(form);
+      const payload = Object.fromEntries(fd.entries());
+
+      // very light client validation
+      if (!payload.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
+        statusEl.textContent = "Please enter a valid email.";
+        return;
+      }
+
+      btn.disabled = true;
+      statusEl.textContent = "Sending…";
+
+      try {
+        const res = await fetch(API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (res.ok) {
+          form.reset();
+          statusEl.textContent = "Request sent";
+        } else {
+          const data = await res.json().catch(() => ({}));
+          statusEl.textContent = data.error || "Something went wrong. Please try again.";
+        }
+      } catch {
+        statusEl.textContent = "Network error. Please try again.";
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  })();
+</script>
 </body>
 </html>
