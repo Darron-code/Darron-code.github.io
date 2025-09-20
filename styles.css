@@ -14,7 +14,7 @@ img{max-width:100%;display:block}
 .container{max-width:var(--container);margin-inline:auto;padding:0 1rem}
 .section{padding:4rem 0}
 
-/* Header */
+                          /* Header */
 .header{position:sticky;top:0;z-index:40;background:rgba(10,10,10,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:80px}
 .brand{display:flex;align-items:center;gap:.75rem}
@@ -24,7 +24,7 @@ img{max-width:100%;display:block}
 .menu{display:none;gap:1.25rem;font-size:.95rem}
 .btn-pill{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(251,191,36,.35);background:rgba(251,191,36,.08);color:#fcd34d;padding:.5rem 1rem;border-radius:999px}
 
-/* Hero */
+                        /* Hero */
 .hero{position:relative;border-bottom:1px solid var(--line);overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;padding:5rem 0}
 .hero h1{font-weight:900;line-height:1.1;font-size:clamp(2.25rem,4vw+1rem,3.75rem)}
@@ -105,19 +105,19 @@ img{max-width:100%;display:block}
   .hero-figure{display:block;align-self:center}
 }
 
-/* Trust */
+                      /* Trust */
 .trust{border-bottom:1px solid var(--line)}
 .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;padding:1rem 0}
 .trust-card{border:1px solid var(--line);background:#111; padding:12px 14px;border-radius:14px}
 .trust-card .t{font-weight:600}
 .trust-card .d{color:var(--muted);margin-top:2px;font-size:.92rem}
 
-/* Section header */
+                    /* Section header */
 .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.5rem}
 .section h2{font-size:1.75rem}
 .section .cta-text{font-size:.9rem;color:#fcd34d}
 
-/* Cards / grids */
+                    /* Cards / grids */
 .grid{display:grid;gap:1rem}
 .grid-2{grid-template-columns:repeat(2,1fr)}
 .grid-3{grid-template-columns:repeat(3,1fr)}
@@ -125,7 +125,7 @@ img{max-width:100%;display:block}
 .card{border:1px solid var(--line);background:rgba(23,23,23,.7);border-radius:var(--radius);padding:1.25rem}
 .title{font-weight:700}
 
-/* Services */
+                    /* Services */
 .list{margin:.5rem 0 0;padding-left:1.1rem;color:var(--text-2)}
 .list li{margin:.25rem 0}
 
@@ -140,6 +140,29 @@ img{max-width:100%;display:block}
 #pricing [data-tier="tactical"] { border-color: color-mix(in srgb, var(--tactical-clr) 40%, transparent); }
 #pricing [data-tier="patriot"]  { border-color: color-mix(in srgb, var(--patriot-clr) 40%, transparent); }
 #pricing [data-tier] .price     { color: inherit; } /* keep price neutral, or color it too if you like */
+
+/* Black Ops: black lettering with white outline */
+#pricing [data-tier="blackops"] .price-top h3{
+  color: var(--blackops-fill);
+  -webkit-text-stroke: var(--blackops-stroke-w) var(--blackops-stroke);
+  text-stroke: var(--blackops-stroke-w) var(--blackops-stroke); /* newer browsers */
+
+  /* Fallback outline (works in all browsers) */
+  text-shadow:
+    1px 0   var(--blackops-stroke),
+   -1px 0   var(--blackops-stroke),
+    0   1px var(--blackops-stroke),
+    0  -1px var(--blackops-stroke),
+    1px  1px var(--blackops-stroke),
+    1px -1px var(--blackops-stroke),
+   -1px  1px var(--blackops-stroke),
+   -1px -1px var(--blackops-stroke);
+}
+
+/* If a .featured style overrides the color, add this for extra weight */
+#pricing .card.featured[data-tier="blackops"] .price-top h3{
+  color: var(--blackops-fill) !important;
+}
 
 .price-card{display:flex;flex-direction:column;gap:.75rem}
 .price-top{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.25rem;text-align:center;margin-bottom:.5rem}
