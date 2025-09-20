@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 
-const ALLOW = (process.env.ALLOWED_ORIGIN || "https://sargeandcents.com,https://www.sargeandcents.com,https://darron-code.github.io")
-  .split(",").map(s=>s.trim()).filter(Boolean);
+const ALLOW_DEFAULT = "https://sargeandcents.com,https://www.sargeandcents.com,https://darron-code.github.io";
+const ALLOW = (process.env.ALLOWED_ORIGIN || ALLOW_DEFAULT).split(",").map(s=>s.trim()).filter(Boolean);
 const ok = (o) => ALLOW.includes(o);
 
 async function getJson(req) {
@@ -32,8 +32,10 @@ export default async function handler(req, res) {
       auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
     });
 
+    try { await transporter.verify(); } catch (e) { console.warn("SMTP verify warning:", e?.message || e); }
+
     await transporter.sendMail({
-      from: process.env.FROM_EMAIL,
+      from: process.env.FROM_EMAIL || "Sarge & Cents Webform <webform@sargeandcents.com>",
       to: process.env.TO_EMAIL,
       replyTo: email,
       subject: "Sarge & Cents — New Website Lead",
