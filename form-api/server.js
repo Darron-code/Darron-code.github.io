@@ -6,6 +6,8 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 dotenv.config();
 
+const API = "https://darron-code-github-io.vercel.app/api/contact";
+
 const app = express();
 app.use(helmet());
 app.use(express.json({ limit: "25kb" }));
