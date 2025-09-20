@@ -48,15 +48,21 @@ img{max-width:100%;display:block}
   border: 1px solid #3f3f3f; /* subtle outer edge */
 }
 
-/* Image fills the framed container and inherits the curve */
-.hero-figure.framed .hero-photo{
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: inherit;
-  background: #111;      /* prevents flash on slow loads */
+/* Right-side hero image */
+.hero-figure{display:none}
+.hero-photo{
+  border-radius:999px;
+  border:6px solid var(--brand, #fbbf24);
+  outline:3px solid rgba(255,255,255,.18);
+  outline-offset:3px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
 }
+/* Image fills the framed container and inherits the curve */
+.hero .hero-figure .hero-photo{ 
+  border:6px solid var(--brand,#fbbf24); 
+  border-radius:999px 
+}
+
 
 /* Choose ONE shape by class on the container */
 
@@ -85,22 +91,6 @@ img{max-width:100%;display:block}
   .hero-figure{ display:block; margin-top:1.25rem; }
 }
 
-
-/* Right-side hero image */
-.hero-figure{display:none}
-.hero-photo{
-  width:100%;
-  max-width:520px;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  border-radius:20px;
-  border:1px solid var(--line);
-  outline:2px solid rgba(255,255,255,.12);
-  box-shadow:var(--shadow);
-  outline-offset:2px;box-shadow:var(--shadow);
-  background:#111;
-  margin-inline:auto
-}
 @media(min-width:768px){
   .hero-grid{grid-template-columns:1.1fr .9fr;align-items:center}
   .hero-figure{display:block;align-self:center}
