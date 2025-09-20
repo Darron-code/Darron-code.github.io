@@ -1,4 +1,3 @@
-export default function handler(_req,res){res.status(200).json({ok:true,time:new Date().toISOString()})}
 export default function handler(req, res){
   res.setHeader("Access-Control-Allow-Origin", req.headers.origin || "*");
   res.setHeader("Vary", "Origin");
