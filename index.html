@@ -15,7 +15,7 @@
     <div class="cta"><a class="btn btn-primary" href="#contact">Book a Free 20-min Consult</a><a class="btn btn-outline" href="#pricing">See Value Pricing</a></div>
     <ul class="badges"><li><span class="chip">QB</span> QuickBooks® Pro-Advisor Focus</li><li><span class="chip">VA</span> Veteran-Owned</li><li><span class="chip">US</span> Based in West Virginia, USA</li></ul>
   </div>
-  <div class="hero-figure"><img src="assets/hero.jpg" alt="Darron — Sarge &amp; Cents" class="hero-photo"></div>
+  <div class="hero-figure"><img src="assets/hero.jpg" alt="Darron L. Soren — Sarge &amp; Cents" class="hero-photo"></div>
 </div></section>
 
 <section id="pricing" class="section"><div class="container">
@@ -53,7 +53,7 @@ document.getElementById('y').textContent = new Date().getFullYear();
   f.addEventListener('submit',async e=>{
     e.preventDefault();
     const d=Object.fromEntries(new FormData(f).entries());
-    if(!d.email||!/^[^\s@]+\.[^\s@]+$/.test(d.email)){s.textContent="Please enter a valid email.";return;}
+    if(!d.email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){s.textContent="Please enter a valid email.";return;}
     b.disabled=true;s.textContent="Sending…";
     try{const r=await fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});
       if(r.ok){f.reset();s.textContent="Request sent";}
