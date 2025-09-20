@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sarge & Cents — Bookkeeping</title>
+<link rel="stylesheet" href="styles.css"><link rel="icon" href="assets/favicon.png">
+</head><body>
+<header class="header"><div class="container nav">
+  <a href="#" class="brand"><img src="assets/logo.jpg" alt="Sarge & Cents logo" class="brand-logo"><div><div class="brand-title">Sarge &amp; Cents</div><div class="brand-sub">Bookkeeping • Advisory • QuickBooks®</div></div></a>
+  <nav class="menu"><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#process">Process</a><a href="#about">About</a><a href="#contact">Contact</a><a href="#contact" class="btn-pill">Free Consult</a></nav>
+</div></header>
+
+<section class="hero" id="home"><div class="container hero-grid">
+  <div>
+    <h1>Bookkeeping that frees your time—and grows your profits.</h1>
+    <p>We set up, clean up, and keep up your books—so you can focus on customers, not spreadsheets.</p>
+    <div class="cta"><a class="btn btn-primary" href="#contact">Book a Free 20-min Consult</a><a class="btn btn-outline" href="#pricing">See Value Pricing</a></div>
+    <ul class="badges"><li><span class="chip">QB</span> QuickBooks® Pro-Advisor Focus</li><li><span class="chip">VA</span> Veteran-Owned</li><li><span class="chip">US</span> Based in West Virginia, USA</li></ul>
+  </div>
+  <div class="hero-figure"><img src="assets/hero.jpg" alt="Darron L. Soren — Sarge &amp; Cents" class="hero-photo"></div>
+</div></section>
+
+<section id="pricing" class="section"><div class="container">
+  <div class="grid">
+    <div class="card price-card"><div class="price-top"><h3>Starter</h3><div class="price">$395/mo</div></div><p class="subtext">For solos & side-hustles.</p></div>
+    <div class="card price-card featured"><div class="price-top"><h3>Growth</h3><div class="price">$695/mo</div></div><p class="subtext">Proactive insights.</p></div>
+    <div class="card price-card"><div class="price-top"><h3>Prime</h3><div class="price">Custom</div></div><p class="subtext">Complex operations.</p></div>
+    <div class="card price-card"><div class="price-top"><h3>Scale</h3><div class="price">$995/mo</div></div><p class="subtext">For growing teams.</p></div>
+  </div>
+</div></section>
+
+<section id="contact" class="section"><div class="container">
+  <div class="contact">
+    <form class="card" id="contact-form" novalidate>
+      <label class="field"><div class="label">First name</div><input class="input" name="first_name" required></label>
+      <label class="field"><div class="label">Last name</div><input class="input" name="last_name" required></label>
+      <label class="field"><div class="label">Email</div><input type="email" class="input" name="email" required></label>
+      <label class="field"><div class="label">Company</div><input class="input" name="company"></label>
+      <label class="field"><div class="label">Message</div><textarea class="input textarea" name="message" required></textarea></label>
+      <button class="btn btn-primary" type="submit" id="sendBtn">Send</button>
+      <p class="subtext form-status" aria-live="polite" id="status"></p>
+    </form>
+  </div>
+</div></section>
+
+<footer class="footer"><div class="container footer-grid"><div>© <span id="y"></span> Sarge &amp; Cents</div></div></footer>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+(function(){
+  const API="https://darron-code-github-io.vercel.app/api/contact";
+  const f=document.getElementById('contact-form');
+  const s=document.getElementById('status');
+  const b=document.getElementById('sendBtn');
+  f.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const d=Object.fromEntries(new FormData(f).entries());
+    if(!d.email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)){s.textContent="Please enter a valid email.";return;}
+    b.disabled=true;s.textContent="Sending…";
+    try{const r=await fetch(API,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});
+      if(r.ok){f.reset();s.textContent="Request sent";}
+      else{const j=await r.json().catch(()=>({}));s.textContent=j.error||"Something went wrong.";}}
+    catch(_e){s.textContent="Network error. Please try again.";}finally{b.disabled=false;}
+  });
+})();
+</script>
+</body></html>
