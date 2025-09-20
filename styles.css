@@ -79,12 +79,19 @@ img{max-width:100%;display:block}
 
 /* Right-side hero image */
 .hero-figure{display:none}
+/* Circle crop + gold ring */
 .hero-photo{
-  border-radius:999px;
-  border:6px solid var(--brand, #fbbf24);
-  outline:3px solid rgba(255,255,255,.18);
-  outline-offset:3px;
-  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;        /* keep it square */
+  object-fit: cover;          /* crop instead of squish */
+  object-position: center;
+  border-radius: 999px;       /* circle */
+  border: 6px solid var(--brand, #fbbf24);
+  outline: 3px solid rgba(255,255,255,.18);
+  outline-offset: 3px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  background: #111;           /* nice placeholder while loading */
 }
 /* Optional: show on mobile too (uncomment if you want it visible on phones) */
 @media (max-width:767.98px){
