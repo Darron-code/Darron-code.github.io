@@ -80,13 +80,13 @@ img{max-width:100%;display:block}
   .hero-figure{ display:block; align-self:center; }
 }
 
-/* Optional: show on mobile too (uncomment if you want it visible on phones)
+/* Optional: show on mobile too (uncomment if you want it visible on phones) */
 @media (max-width:767.98px){
   .hero-figure{ display:block; margin-top:1.25rem; }
 }
-*/
 
 
+/* Right-side hero image */
 .hero-figure{display:none}
 .hero-photo{
   width:100%;
