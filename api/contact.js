@@ -1,9 +1,15 @@
 import nodemailer from "nodemailer";
 
+const DEFAULT_ALLOW = "https://darron-code.github.io";
+
 const allow = (origin) => {
-  const list = (process.env.ALLOWED_ORIGIN || "").split(",").map(s=>s.trim()).filter(Boolean);
-  return list.length ? list.includes(origin) : true;
+  const list = (process.env.ALLOWED_ORIGIN || DEFAULT_ALLOW).split(",").map(s=>s.trim()).filter(Boolean);
+  return list.includes(origin);
 };
+
+function escapeHtml(s = "") {
+  return s.replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",""":"&quot;","'":"&#39;" }[c]));
+}
 
 export default async function handler(req, res) {
   const origin = req.headers.origin || "";
@@ -16,7 +22,7 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
   const { first_name = "", last_name = "", email = "", company = "", message = "" } = req.body || {};
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !String(message).trim()) {
+  if (!email || !/^([^\s@]+)@([^\s@]+)\.([^\s@]+)$/.test(email) || !String(message).trim()) {
     return res.status(400).json({ error: "Invalid form data." });
   }
 
@@ -28,12 +34,31 @@ export default async function handler(req, res) {
       auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
     });
 
+    const subject = "Sarge & Cents — New Website Lead";
+    const text = `New website lead:
+
+First name: ${first_name}
+Last name: ${last_name}
+Email: ${email}
+Company: ${company}
+Message:
+${message}`;
+
+    const html = `<h2>New website lead</h2>
+<ul>
+  <li><b>First name:</b> ${escapeHtml(first_name)}</li>
+  <li><b>Last name:</b> ${escapeHtml(last_name)}</li>
+  <li><b>Email:</b> ${escapeHtml(email)}</li>
+  <li><b>Company:</b> ${escapeHtml(company)}</li>
+</ul>
+<p><b>Message:</b></p>
+<pre style="white-space:pre-wrap;font:inherit">${escapeHtml(message)}</pre>`;
+
     await transporter.sendMail({
       from: process.env.FROM_EMAIL,
       to: process.env.TO_EMAIL,
       replyTo: email,
-      subject: "Sarge & Cents — New Website Lead",
-      text: `First: ${first_name}\nLast: ${last_name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`
+      subject, text, html
     });
 
     return res.status(200).json({ ok: true });

@@ -1,5 +1,6 @@
 export default function handler(req, res){
-  res.setHeader("Access-Control-Allow-Origin", req.headers.origin || "*");
+  const origin = req.headers.origin || "*";
+  res.setHeader("Access-Control-Allow-Origin", origin);
   res.setHeader("Vary", "Origin");
   if (req.method === "OPTIONS") {
     res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
