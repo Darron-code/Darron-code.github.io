@@ -48,15 +48,6 @@ img{max-width:100%;display:block}
   border: 1px solid #3f3f3f; /* subtle outer edge */
 }
 
-/* Right-side hero image */
-.hero-figure{display:none}
-.hero-photo{
-  border-radius:999px;
-  border:6px solid var(--brand, #fbbf24);
-  outline:3px solid rgba(255,255,255,.18);
-  outline-offset:3px;
-  box-shadow:0 10px 30px rgba(0,0,0,.35);
-}
 /* Image fills the framed container and inherits the curve */
 .hero .hero-figure .hero-photo{ 
   border:6px solid var(--brand,#fbbf24); 
@@ -86,6 +77,15 @@ img{max-width:100%;display:block}
   .hero-figure{ display:block; align-self:center; }
 }
 
+/* Right-side hero image */
+.hero-figure{display:none}
+.hero-photo{
+  border-radius:999px;
+  border:6px solid var(--brand, #fbbf24);
+  outline:3px solid rgba(255,255,255,.18);
+  outline-offset:3px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
 /* Optional: show on mobile too (uncomment if you want it visible on phones) */
 @media (max-width:767.98px){
   .hero-figure{ display:block; margin-top:1.25rem; }
