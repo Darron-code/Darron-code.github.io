@@ -139,9 +139,53 @@ img{max-width:100%;display:block}
 .subtext{color:var(--muted);font-size:.85rem;margin-top:.5rem}
 
 /* Process */
-.steps{display:grid;gap:1rem}
+/*.steps{display:grid;gap:1rem}
 .step{position:relative;padding:1.25rem;border:1px solid var(--line);background:rgba(23,23,23,.7);border-radius:var(--radius)}
 .step .num{position:absolute;left:1rem;top:-.75rem;background:var(--brand);color:#111;font-weight:800;border-radius:999px;display:grid;place-items:center;width:24px;height:24px;box-shadow:var(--shadow)}
+/* --- PROCESS: 4 cards in a row on desktop, responsive below --- */
+#process .steps{
+  display:grid;
+  gap:1rem;
+  grid-template-columns: 1fr;           /* mobile: 1 per row */
+}
+@media (min-width: 640px){              /* tablet: 2 per row */
+  #process .steps{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px){             /* desktop: 4 per row */
+  #process .steps{ grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Remove default OL numbering so only your round badges show */
+#process ol, 
+#process .steps{
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+#process li::marker{ content: ''; }     /* hide "1. 2. 3." markers */
+
+/* Card & badge polish (keep if you use .step / .num) */
+#process .step{
+  position: relative;
+  border: 1px solid var(--line, #262626);
+  background: rgba(23,23,23,.7);
+  border-radius: 16px;
+  padding: 1.25rem;
+}
+#process .step .num{
+  position: absolute;
+  left: 1rem;
+  top: -0.75rem;
+  background: var(--brand, #fbbf24);
+  color: #111;
+  font-weight: 800;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
 
 /* About */
 .about{display:grid;gap:1.25rem}
