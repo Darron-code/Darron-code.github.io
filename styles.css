@@ -147,7 +147,7 @@ img{max-width:100%;display:block}
 
 /* Center the Additional Services card beneath the tier grid */
 #pricing .grid > .addl-card{
-  grid-column: 1 / -1;               /* span the full grid width */
+  grid-column: 4 / 5;               /* span the full grid width */
   justify-self: center;               /* center the card itself */
   width: min(100%, 48rem);            /* nice readable max width */
   margin-top: .5rem;                  /* a touch of extra spacing */
