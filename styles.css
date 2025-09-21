@@ -235,7 +235,6 @@ img{max-width:100%;display:block}
 .plus::after {content: "";position: absolute;background: #3b82f6; /* blue */}
 .plus::before {top: 0;left: 50%;width: 2px;height: 100%;transform: translateX(-50%);}
 .plus::after {top: 50%;left: 0;width: 100%;height: 2px;transform: translateY(-50%);}
-.checkmark{display:inline-block;top: 0;left: 0;height: 25px; width: 25px; background-color: #eee; border-radius: 4px;}
 .price-feats-top{display:grid;gap:.5rem}
 .price-feats{display:grid;gap:.5rem}
 .subtext{color:var(--muted);font-size:.85rem;margin-top:.5rem}
