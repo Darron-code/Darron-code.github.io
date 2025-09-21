@@ -3,7 +3,8 @@
   --text:#f5f5f5; --text-2:#d4d4d4; --line:#262626;
   --brand:#fbbf24; --shadow:0 10px 30px rgba(0,0,0,.35);
   --radius:16px; --radius-lg:20px; --container:72rem;
-  --recon-clr:#e61313; --tactical-clr:#FFFFFF; --patriot-clr:#0D05F5; --additional-clr:#79117d; 
+  --recon-clr:#e61313; --tactical-clr:#FFFFFF; --patriot-clr:#0D05F5; 
+  --additional-clr:#79117d; --price-clr:#439a09;
   --blackops-fill: #000; --blackops-stroke: #fff; --blackops-stroke-w: 1px;  /* make 3px for a thicker outline */
 }
 *{box-sizing:border-box}
@@ -141,7 +142,7 @@ img{max-width:100%;display:block}
 #pricing [data-tier="tactical"] { border-color: color-mix(in srgb, var(--tactical-clr) 40%, transparent); }
 #pricing [data-tier="patriot"]  { border-color: color-mix(in srgb, var(--patriot-clr) 40%, transparent); }
 #pricing [data-tier="additional"]  { border-color: color-mix(in srgb, var(--additional-clr) 40%, transparent); }
-#pricing [data-tier] .price     { color: inherit; } /* keep price neutral, or color it too if you like */
+#pricing [data-tier] .price     { color: var(--price-clr); } /* keep price neutral, or color it too if you like */
 
 /* Center the Additional Services card beneath the tier grid */
 #pricing .grid > .addl-card{
