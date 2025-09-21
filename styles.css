@@ -136,6 +136,7 @@ img{max-width:100%;display:block}
 #pricing [data-tier="tactical"] .price-top h3 { color: var(--tactical-clr); }
 #pricing [data-tier="patriot"] .price-top h3  { color: var(--patriot-clr); } 
 #pricing [data-tier="additional"] .price-top h3  { color: var(--additional-clr); }
+#pricing [data-tier] .price h3  { color: var(--price-clr); }
 
 /* (optional) match other accents on each card */
 #pricing [data-tier="recon"]    { border-color: color-mix(in srgb, var(--recon-clr) 40%, transparent); }
