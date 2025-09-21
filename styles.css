@@ -229,7 +229,8 @@ img{max-width:100%;display:block}
 .price-top h3{margin:0;font-size:1.5rem;front-weight:800}
 .price{font-weight:900;font-size:1.75rem;margin:0}
 .featured{border-color:rgba(251,191,36,.5);background:rgba(251,191,36,.06);box-shadow:0 0 0 1px rgba(251,191,36,.2)}
-.checkmark {display: inline-block;width:12px;height:6px;border-left:2px solid #22c55e; /* green */border-bottom: 2px solid #22c55e;transform: rotate(-45deg);margin-top: .35rem;}
+.dot{display:inline-block;width:6px;height:6px;border-radius:999px;background:#fcd34d;margin-top:.45rem}
+.checkmark {display: inline-block;width:12px;height:6px;color: #22c55e; /* green */;}
 .plus {display: inline-block;position: relative;width: 10px;height: 10px;margin-top: .35rem;}
 .plus::before,
 .plus::after {content: "";position: absolute;background: #3b82f6; /* blue */}
