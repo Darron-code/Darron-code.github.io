@@ -143,6 +143,15 @@ img{max-width:100%;display:block}
 #pricing [data-tier="additional"]  { border-color: color-mix(in srgb, var(--additional-clr) 40%, transparent); }
 #pricing [data-tier] .price     { color: inherit; } /* keep price neutral, or color it too if you like */
 
+/* Center the Additional Services card beneath the tier grid */
+#pricing .grid > .addl-card{
+  grid-column: 1 / -1;               /* span the full grid width */
+  justify-self: center;               /* center the card itself */
+  width: min(100%, 48rem);            /* nice readable max width */
+  margin-top: .5rem;                  /* a touch of extra spacing */
+  text-align: left;                   /* keep content left-aligned inside */
+}
+
 /* Black Ops: black lettering with white outline */
 #pricing [data-tier="blackops"] .price-top h3{
   color: var(--blackops-fill);
