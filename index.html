@@ -6,12 +6,14 @@
   <title>Sarge & Cents — Bookkeeping</title>
   <meta name="description" content="Disabled Veteran-owned & Operated, value-priced bookkeeping for small businesses. QuickBooks® focused." />
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="nav.css">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <meta property="og:title" content="Sarge & Cents — Bookkeeping">
   <meta property="og:description" content="Disabled Veteran-Owned & Operated, value-priced bookkeeping for small businesses.">
   <meta property="og:image" content="assets/og-image.png">
   <meta name="theme-color" content="#0a0a0a">
 </head>
+  <script src="nav.js"></script>
 <body> 
                     <!-- Header -->
 <header class="header" role="banner">
@@ -23,6 +25,23 @@
         <div class="brand-sub">Bookkeeping • Advisory • QuickBooks®</div>
       </div>
     </a>
+    <button class="hamburger"
+        aria-label="Toggle menu"
+        aria-controls="site-menu"
+        aria-expanded="false">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+
+<nav id="site-menu" class="menu">
+  <a href="#services">Services</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#process">Process</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a class="btn-pill" href="#contact">Free Consult</a>
+</nav>
     <button class="hamburger"
         aria-label="Toggle menu"
         aria-controls="site-menu"
@@ -258,34 +277,8 @@
         <h2>How We Work</h2>
         <a class="cta-text" href="#contact">Free consult →</a>
       </div>
-      <!-- <ol class="steps">
-        <li class="step">
-          <div class="num">1</div>
-          <h4>Discovery</h4>
-          <p class="subtext">Free consult to understand your goals, systems, and bottlenecks.</p>
-        </li>
-        <li class="step">
-          <div class="num">2</div>
-          <h4>Proposal</h4>
-          <p class="subtext">Clear scope + fixed monthly price tailored to your needs.</p>
-        </li>
-        <li class="step">
-          <div class="num">3</div>
-          <h4>Onboarding</h4>
-          <p class="subtext">QuickBooks® connection, doc vault, and first-month checklist.</p>
-        </li>
-        <li class="step">
-          <div class="num">4</div>
-          <h4>Monthly Rhythm</h4>
-          <p class="subtext">Categorize → reconcile → report → advise. On-time closings, every month.</p>
-        </li>
-      </ol>
-     </div>
-    </div>
-  </section> 
-  -->
+     
                     <!-- Process New -->
-  <section id="process">
   <ol class="steps">
     <li class="step">
       <span class="num">1</span>
