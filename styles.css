@@ -131,9 +131,13 @@ img{max-width:100%;display:block}
 
                                 /* Pricing */
 /* Title colors */
-#pricing [data-tier="recon"] .price-top h3    { color: var(--recon-clr); }
+/*#pricing [data-tier="recon"] .price-top h3    { color: var(--recon-clr); }
 #pricing [data-tier="tactical"] .price-top h3 { color: var(--tactical-clr); }
-#pricing [data-tier="patriot"] .price-top h3  { color: var(--patriot-clr); }
+#pricing [data-tier="patriot"] .price-top h3  { color: var(--patriot-clr); } */
+#tier-recon    { color: #E7180B; } /* Red */
+#tier-tactical { color: #FFFFFF; } /* white */
+#tier-patriot  { color: #0D05F5; } /* blue */
+
 
 /* (optional) match other accents on each card */
 #pricing [data-tier="recon"]    { border-color: color-mix(in srgb, var(--recon-clr) 40%, transparent); }
