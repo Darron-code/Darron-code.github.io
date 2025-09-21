@@ -3,7 +3,7 @@
   --text:#f5f5f5; --text-2:#d4d4d4; --line:#262626;
   --brand:#fbbf24; --shadow:0 10px 30px rgba(0,0,0,.35);
   --radius:16px; --radius-lg:20px; --container:72rem
-  --recon-clr:#22d3ee; --tactical-clr:#a78bfa; --patriot-clr:#f59e0b; 
+  --recon-clr:#fa0519; --tactical-clr:#FFFFFF; --patriot-clr:#0D05F5; 
   --blackops-fill: #000; --blackops-stroke: #fff; --blackops-stroke-w: 2px;  /* make 3px for a thicker outline */
 }
 *{box-sizing:border-box}
