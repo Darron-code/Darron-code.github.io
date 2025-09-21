@@ -151,7 +151,7 @@ img{max-width:100%;display:block}
   justify-self: center;               /* center the card itself */
   width: min(100%, 48rem);            /* nice readable max width */
   margin-top: .5rem;                  /* a touch of extra spacing */
-  text-align: left;                   /* keep content left-aligned inside */
+  text-align: center;                   /* keep content left-aligned inside */
 }
 
 /* Black Ops: black lettering with white outline */
