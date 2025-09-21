@@ -3,7 +3,7 @@
   --text:#f5f5f5; --text-2:#d4d4d4; --line:#262626;
   --brand:#fbbf24; --shadow:0 10px 30px rgba(0,0,0,.35);
   --radius:16px; --radius-lg:20px; --container:72rem;
-  --recon-clr:#E7180B; --tactical-clr:#FFFFFF; --patriot-clr:#0D05F5; 
+  --recon-clr:#e61313; --tactical-clr:#FFFFFF; --patriot-clr:#0D05F5; --additional-clr:#4a054d; 
   --blackops-fill: #000; --blackops-stroke: #fff; --blackops-stroke-w: 1px;  /* make 3px for a thicker outline */
 }
 *{box-sizing:border-box}
@@ -134,11 +134,13 @@ img{max-width:100%;display:block}
 #pricing [data-tier="recon"] .price-top h3    { color: var(--recon-clr); }
 #pricing [data-tier="tactical"] .price-top h3 { color: var(--tactical-clr); }
 #pricing [data-tier="patriot"] .price-top h3  { color: var(--patriot-clr); } 
+#pricing [data-tier="additional"] .price-top h3  { color: var(--additional-clr); }
 
 /* (optional) match other accents on each card */
 #pricing [data-tier="recon"]    { border-color: color-mix(in srgb, var(--recon-clr) 40%, transparent); }
 #pricing [data-tier="tactical"] { border-color: color-mix(in srgb, var(--tactical-clr) 40%, transparent); }
 #pricing [data-tier="patriot"]  { border-color: color-mix(in srgb, var(--patriot-clr) 40%, transparent); }
+#pricing [data-tier="additional"]  { border-color: color-mix(in srgb, var(--additional-clr) 40%, transparent); }
 #pricing [data-tier] .price     { color: inherit; } /* keep price neutral, or color it too if you like */
 
 /* Black Ops: black lettering with white outline */
