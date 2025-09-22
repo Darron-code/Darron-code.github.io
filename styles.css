@@ -232,13 +232,33 @@ img{max-width:100%;display:block}
 .dot{display:inline-block;width:6px;height:6px;border-radius:999px;background:#fcd34d;margin-top:.45rem}
 .checkmark {
   display: inline-block;
-  width: 18px;
-  height: 12px;
-  border-left: 2px solid #facc15; /* gold */
-  border-bottom: 2px solid #facc15;
-  transform: rotate(-45deg);
+  position: relative;
+  width: 14px; height: 14px;
   margin-top: .35rem;
 }
+
+.checkmark::before,
+.checkmark::after {
+  content: "";
+  position: absolute;
+  background: #facc15;         /* gold */
+  border-radius: 999px;         /* rounded ends */
+}
+
+/* short leg */
+.checkmark::before {
+  width: 2px; height: 6px;
+  left: 4px; top: 6px;
+  transform: rotate(45deg);
+}
+
+/* long leg */
+.checkmark::after {
+  width: 2px; height: 10px;
+  left: 8px; top: 2px;
+  transform: rotate(-45deg);
+}
+
 
 .plus {
   display: inline-block;
