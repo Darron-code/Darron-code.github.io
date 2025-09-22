@@ -230,34 +230,34 @@ img{max-width:100%;display:block}
 .price{font-weight:900;font-size:1.75rem;margin:0}
 .featured{border-color:rgba(251,191,36,.5);background:rgba(251,191,36,.06);box-shadow:0 0 0 1px rgba(251,191,36,.2)}
 .dot{display:inline-block;width:6px;height:6px;border-radius:999px;background:#fcd34d;margin-top:.45rem}
-.checkmark {
+/* Base: use your dot’s gold */
+.checkmark-fancy {
   display: inline-block;
-  position: relative;
-  width: 14px; height: 14px;
-  margin-top: .35rem;
+  line-height: 1;
+  color: #fcd34d;       /* gold */
+  vertical-align: middle;
 }
 
-.checkmark::before,
-.checkmark::after {
-  content: "";
-  position: absolute;
-  background: #facc15;         /* gold */
-  border-radius: 999px;         /* rounded ends */
+/* Size via font-size (change as needed) */
+.checkmark-fancy { font-size: 14px; } /* default */
+.checkmark-fancy.sm { font-size: 10px; }  /* near your 6px dot scale */
+.checkmark-fancy.md { font-size: 14px; }
+.checkmark-fancy.lg { font-size: 18px; }
+
+/* Stroke quality */
+.check-svg {
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-/* short leg */
-.checkmark::before {
-  width: 2px; height: 6px;
-  left: 4px; top: 6px;
-  transform: rotate(45deg);
-}
-
-/* long leg */
-.checkmark::after {
-  width: 2px; height: 10px;
-  left: 8px; top: 2px;
-  transform: rotate(-45deg);
-}
+/* Weight presets — pick one */
+.checkmark-fancy.thin    .check-svg { stroke-width: 1.75; } /* airy */
+.checkmark-fancy.regular .check-svg { stroke-width: 2.25; } /* balanced */
+.checkmark-fancy.bold    .check-svg { stroke-width: 3; }    /* strong */
 
 
 .plus {
