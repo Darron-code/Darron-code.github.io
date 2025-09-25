@@ -83,7 +83,7 @@ img{max-width:100%;display:block}
 .btn-outline{background:transparent;color:var(--text);border-color:#3f3f3f}
 .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;color:var(--muted);font-size:.9rem}
 .trust-badges img {filter: drop-shadow(0 2px 8px rgba(0,0,0,0.08));background: #fff;border-radius: 8px;padding: 6px 12px;}
-.chip{display:inline-block;padding:.15rem .4rem;border-radius:8px;background:#171717;border:1px solid #3f3f3f;font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--text-2);font-size:.75rem}
+.chip{display:inline-block;padding:.2rem .5rem;border-radius:8px;background:#171717;border:1px solid #3f3f3f;font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--text-2);font-size:.75rem}
 /* ==== Framed hero image (circle/oval) ==== */
 
 /* Base: framed container draws the ring; image inherits the shape */
