@@ -69,6 +69,7 @@ img{max-width:100%;display:block}
 .brand-logo{height:56px;width:auto;border-radius:8px}
 .brand-title{font-weight:800;letter-spacing:.2px}
 .brand-sub{font-size:.72rem;color:var(--muted)}
+.trust-badges img {filter: drop-shadow(0 2px 8px rgba(0,0,0,0.08));background: #fff;border-radius: 8px;padding: 6px 12px;}
 .menu{display:none;gap:1.25rem;font-size:.95rem}
 .btn-pill{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(251,191,36,.35);background:rgba(251,191,36,.08);color:#fcd34d;padding:.5rem 1rem;border-radius:999px}
 
