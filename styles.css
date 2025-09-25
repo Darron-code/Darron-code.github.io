@@ -86,20 +86,46 @@ img{max-width:100%;display:block}
 .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;color:var(--muted);font-size:.9rem}
 .trust-badges img {filter: drop-shadow(0 2px 8px rgba(0,0,0,0.08));background: #fff;border-radius: 8px;padding: 6px 12px;}
 /* HERO — badge row spacing + pill styling */
-.hero .badges{display: flex !important;flex-wrap: wrap;gap: .5rem .75rem;       /* row & column gap */list-style: none;padding: 0;margin: .75rem 0 0;}
+/* HERO badges — lock chip + label alignment and spacing */
+.hero .badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem .75rem;
+  list-style:none;
+  padding:0;
+  margin:.75rem 0 0;
+}
 
-.hero .badges > li{display: inline-flex;align-items: center;gap: .5rem;             /* space between chip + text */
-  padding: 0;border: 0;background: transparent;line-height:1.35;white-space: nowrap;     /* keep each badge on one line */}
+/* Make each badge a single inline row and center vertically */
+.hero .badges > li{
+  display:inline-flex !important;  /* force this layout */
+  align-items:center;               /* centers chip vs. text line */
+  gap:.55rem;                       /* consistent space between chip and text */
+  padding:0; border:0; background:transparent;
+  line-height:1.2;                  /* stable line height for label */
+}
 
-/* The small square “chip” at the start of each badge */
-/* the small chip: centered perfectly */
+/* The chip itself — perfectly centered inside its border */
 .hero .badges .chip{
-  --s:1.35rem; /* size of the chip */inline-size:var(--s);block-size:var(--s);display:grid; /* perfect center both ways */
-  place-items:center;  border-radius:.5rem;    /* square with slight rounding; use 50% for a circle */
-  border:1px solid #3f3f3f;background:#171717;color:var(--text-2,#d4d4d4);font:600 .72rem/1 ui-monospace,Menlo,Consolas,monospace;
-  box-shadow:0 1px 0 rgba(0,0,0,.35);  /* subtle depth */
-/* ensure exact optical centering */
-  transform:none;}
+  --s:1.30rem;                      /* exact chip size; tweak if needed */
+  width:var(--s);
+  height:var(--s);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #3f3f3f;
+  border-radius:.45rem;             /* slight rounding (use 50% for circle) */
+  background:#171717;
+  color:var(--text-2,#d4d4d4);
+  font:700 .72rem/1 ui-monospace,Menlo,Consolas,monospace;
+  margin:0;                         /* kill any inherited offsets */
+  transform:none;                   /* kill previous nudges */
+}
+
+/* If you still see a tiny optical shift, use ONE of these micro-nudges: */
+/* .hero .badges .chip{ transform: translateY(-0.5px); }  */  /* nudge up 0.5px */
+/* .hero .badges .chip{ transform: translateY( 0.5px); }  */  /* nudge down 0.5px */
+
 
 /* Fallback for older browsers w/o gap support */
 @supports not (gap: 1rem){
