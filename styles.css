@@ -85,6 +85,20 @@ img{max-width:100%;display:block}
 .btn-outline{background:transparent;color:var(--text);border-color:#3f3f3f}
 .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;color:var(--muted);font-size:.9rem}
 .trust-badges img {filter: drop-shadow(0 2px 8px rgba(0,0,0,0.08));background: #fff;border-radius: 8px;padding: 6px 12px;}
+/* HERO — badge row spacing + pill styling */
+.hero .badges{display: flex !important;flex-wrap: wrap;align-items: center;justify-content: flex-start;gap: .5rem .75rem;       /* row & column gap */list-style: none;padding-left: 0;margin: .75rem 0 0;}
+
+.hero .badges > li{display: inline-flex;align-items: center;gap: .45rem;             /* space between chip + text */
+  padding: .4rem .65rem;border: 1px solid var(--line, #262626);border-radius: 999px;    /* pill */background: rgba(23,23,23,.6);white-space: nowrap;     /* keep each badge on one line */}
+
+/* The small square “chip” at the start of each badge */
+.hero .badges .chip{flex: 0 0 auto;display: grid;place-items: center;width: 1.5rem;height: 1.5rem;border-radius: .5rem;border: 1px solid #3f3f3f;background: #171717;color: var(--text-2, #d4d4d4);font: 600 .75rem/1 ui-monospace, Menlo, Consolas, monospace;}
+
+/* Older browsers that don’t support flex gap */
+@supports not (gap: 1rem){
+  .hero .badges > li{ margin: 0 .75rem .5rem 0; }
+}
+
 .chip{display:inline-block;padding:.2rem .5rem;border-radius:8px;background:#171717;border:1px solid #3f3f3f;font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--text-2);font-size:.75rem}
 /* ==== Framed hero image (circle/oval) ==== */
 
